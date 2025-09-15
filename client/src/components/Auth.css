@@ -1,0 +1,590 @@
+/* Authentication Components Styles */
+
+/* Auth Modal */
+.auth-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 2rem;
+}
+
+.auth-modal-content {
+  position: relative;
+  max-width: 90vw;
+  max-height: 90vh;
+  overflow-y: auto;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(20px);
+  box-shadow: 
+    0 25px 50px rgba(0, 0, 0, 0.15),
+    0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.auth-modal-close {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid var(--medical-border);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: var(--medical-text-secondary);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 10;
+  backdrop-filter: blur(10px);
+}
+
+.auth-modal-close:hover {
+  background: rgba(var(--medical-error-rgb), 0.1);
+  border-color: var(--medical-error);
+  color: var(--medical-error);
+  transform: scale(1.1);
+}
+
+.auth-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, 
+    var(--medical-primary) 0%, 
+    var(--medical-secondary) 50%, 
+    var(--medical-accent) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Modal version adjustments */
+.auth-modal-content .auth-container {
+  min-height: auto;
+  background: transparent;
+  padding: 0;
+}
+
+.auth-modal-content .auth-card {
+  background: transparent;
+  backdrop-filter: none;
+  border-radius: 0;
+  border: none;
+  box-shadow: none;
+  margin: 0;
+}
+
+.auth-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="%23ffffff" stroke-width="0.5" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+  pointer-events: none;
+}
+
+.auth-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border-radius: 24px;
+  padding: 3rem;
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.1),
+    0 1px 3px rgba(0, 0, 0, 0.05),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  width: 100%;
+  max-width: 480px;
+  position: relative;
+  z-index: 1;
+}
+
+.register-card {
+  max-width: 520px;
+}
+
+.auth-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.auth-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.logo-icon {
+  font-size: 2.5rem;
+  background: linear-gradient(135deg, var(--medical-primary), var(--medical-accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.auth-header h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--medical-primary), var(--medical-accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 0;
+}
+
+.auth-header h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--medical-dark);
+  margin: 0 0 0.5rem 0;
+}
+
+.auth-header p {
+  color: var(--medical-text-secondary);
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+/* Progress Indicator */
+.progress-indicator {
+  margin-top: 1.5rem;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 6px;
+  background: rgba(var(--medical-primary-rgb), 0.1);
+  border-radius: 3px;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--medical-primary), var(--medical-accent));
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}
+
+.progress-text {
+  font-size: 0.85rem;
+  color: var(--medical-text-secondary);
+  font-weight: 500;
+}
+
+/* Form Styles */
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group label {
+  font-weight: 600;
+  color: var(--medical-dark);
+  font-size: 0.95rem;
+  margin-bottom: 0.25rem;
+}
+
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-wrapper input,
+.input-wrapper select {
+  width: 100%;
+  padding: 1rem 1rem 1rem 3rem;
+  border: 2px solid var(--medical-border);
+  border-radius: 12px;
+  font-size: 1rem;
+  font-family: var(--medical-font);
+  background: var(--medical-bg);
+  color: var(--medical-text);
+  transition: all 0.3s ease;
+}
+
+.input-wrapper input:focus,
+.input-wrapper select:focus {
+  outline: none;
+  border-color: var(--medical-primary);
+  box-shadow: 0 0 0 3px rgba(var(--medical-primary-rgb), 0.1);
+  transform: translateY(-1px);
+}
+
+.input-wrapper input.error,
+.input-wrapper select.error {
+  border-color: var(--medical-error);
+  box-shadow: 0 0 0 3px rgba(var(--medical-error-rgb), 0.1);
+}
+
+.input-wrapper input:disabled,
+.input-wrapper select:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.input-icon {
+  position: absolute;
+  left: 1rem;
+  font-size: 1.1rem;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.password-toggle {
+  position: absolute;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 1.1rem;
+  cursor: pointer;
+  padding: 0.25rem;
+  border-radius: 6px;
+  transition: background-color 0.2s ease;
+  z-index: 2;
+}
+
+.password-toggle:hover {
+  background: rgba(var(--medical-primary-rgb), 0.1);
+}
+
+.password-toggle:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.field-error {
+  color: var(--medical-error);
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin-top: 0.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.field-error::before {
+  content: '⚠️';
+  font-size: 0.8rem;
+}
+
+/* Checkbox Grid */
+.checkbox-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.checkbox-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  border: 2px solid var(--medical-border);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: var(--medical-bg);
+}
+
+.checkbox-item:hover {
+  border-color: var(--medical-primary);
+  background: rgba(var(--medical-primary-rgb), 0.05);
+}
+
+.checkbox-item input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--medical-primary);
+  cursor: pointer;
+}
+
+.checkbox-item input[type="checkbox"]:checked + .checkbox-label {
+  color: var(--medical-primary);
+  font-weight: 600;
+}
+
+.checkbox-label {
+  font-size: 0.9rem;
+  color: var(--medical-text);
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+/* Form Navigation */
+.form-navigation {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.nav-button {
+  flex: 1;
+  padding: 1rem 1.5rem;
+  border: 2px solid var(--medical-border);
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: var(--medical-font);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: var(--medical-bg);
+  color: var(--medical-text);
+}
+
+.nav-button:hover {
+  border-color: var(--medical-primary);
+  background: rgba(var(--medical-primary-rgb), 0.05);
+  transform: translateY(-1px);
+}
+
+.nav-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.nav-button.next {
+  background: linear-gradient(135deg, var(--medical-primary), var(--medical-accent));
+  color: white;
+  border-color: transparent;
+}
+
+.nav-button.next:hover {
+  background: linear-gradient(135deg, 
+    var(--medical-primary-dark), 
+    var(--medical-accent-dark));
+  transform: translateY(-1px);
+}
+
+/* Submit Button */
+.auth-submit {
+  width: 100%;
+  padding: 1.2rem 2rem;
+  background: linear-gradient(135deg, var(--medical-primary), var(--medical-accent));
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  font-family: var(--medical-font);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  box-shadow: 0 4px 15px rgba(var(--medical-primary-rgb), 0.3);
+}
+
+.auth-submit:hover {
+  background: linear-gradient(135deg, 
+    var(--medical-primary-dark), 
+    var(--medical-accent-dark));
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(var(--medical-primary-rgb), 0.4);
+}
+
+.auth-submit:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: 0 4px 15px rgba(var(--medical-primary-rgb), 0.2);
+}
+
+.submit-icon {
+  font-size: 1.2rem;
+}
+
+/* Loading Spinner */
+.loading-spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top: 2px solid white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Switch Button */
+.auth-switch {
+  width: 100%;
+  padding: 1rem 2rem;
+  background: transparent;
+  color: var(--medical-primary);
+  border: 2px solid var(--medical-primary);
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: var(--medical-font);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.auth-switch:hover {
+  background: var(--medical-primary);
+  color: white;
+  transform: translateY(-1px);
+}
+
+.auth-switch:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Divider */
+.auth-divider {
+  text-align: center;
+  margin: 1rem 0;
+  position: relative;
+}
+
+.auth-divider::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--medical-border);
+  z-index: 1;
+}
+
+.auth-divider span {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 0 1rem;
+  color: var(--medical-text-secondary);
+  font-size: 0.9rem;
+  position: relative;
+  z-index: 2;
+}
+
+/* Error Message */
+.auth-error {
+  background: rgba(var(--medical-error-rgb), 0.1);
+  border: 1px solid rgba(var(--medical-error-rgb), 0.2);
+  border-radius: 10px;
+  padding: 1rem;
+  color: var(--medical-error);
+  font-size: 0.95rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.error-icon {
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+/* Footer */
+.auth-footer {
+  text-align: center;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--medical-border);
+}
+
+.auth-footer p {
+  color: var(--medical-text-secondary);
+  font-size: 0.85rem;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .auth-container {
+    padding: 1rem;
+  }
+  
+  .auth-card {
+    padding: 2rem;
+    margin: 1rem;
+  }
+  
+  .register-card {
+    max-width: none;
+  }
+  
+  .checkbox-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .form-navigation {
+    flex-direction: column;
+  }
+  
+  .auth-header h1 {
+    font-size: 1.75rem;
+  }
+  
+  .auth-header h2 {
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .auth-card {
+    padding: 1.5rem;
+  }
+  
+  .input-wrapper input,
+  .input-wrapper select {
+    padding: 0.875rem 0.875rem 0.875rem 2.75rem;
+    font-size: 0.95rem;
+  }
+  
+  .input-icon {
+    left: 0.875rem;
+    font-size: 1rem;
+  }
+  
+  .password-toggle {
+    right: 0.875rem;
+  }
+  
+  .auth-submit,
+  .auth-switch,
+  .nav-button {
+    padding: 1rem 1.5rem;
+    font-size: 0.95rem;
+  }
+}
